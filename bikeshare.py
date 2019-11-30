@@ -159,9 +159,3 @@ def main():
 
 if __name__ == "__main__":
      main()
-
-def new_city():
-    nc = input("please add a new city: ")
-
-def load_new_city():
-    NC = pd.read_csv(CITY_DATA[NC])      
