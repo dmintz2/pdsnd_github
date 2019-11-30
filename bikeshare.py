@@ -4,7 +4,7 @@ CITY_DATA = {'chicago': 'chicago.csv',
              'new york': 'new_york_city.csv',
              'washington': 'washington.csv' }
 
-### ask user input data filter 
+### ask user input data filter
 def get_input():
     print('Hi there! Let\'s explore some US bikeshare data!')
     while True:
@@ -22,7 +22,7 @@ def get_input():
             print ('Please print only one of the following: month, day, or none:')
         else:
             break
-    if ask == 'month': 
+    if ask == 'month':
         while True:
             month = input('Insert month to filter: \n January \n February \n March \n April \n May \n June \n').lower()
             months = ['january', 'february', 'march', 'april', 'may', 'june']
@@ -41,12 +41,12 @@ def get_input():
                 print ('Please type only a proper full week day (e.g.: Sunday)')
             else:
                 break
-        month = 0    
+        month = 0
     elif ask == 'none':
         print('\n No Filtering:')
         day = 0
         month = 0
-    return ask, city, month, day       
+    return ask, city, month, day
 
 ### load data function
 def load_data(ask,city,month,day):
@@ -57,12 +57,12 @@ def load_data(ask,city,month,day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    if ask == 'month': 
-        df = df[df['month'] == month]   
+    if ask == 'month':
+        df = df[df['month'] == month]
     if ask == 'day':
-        df = df[df['day_of_week'] == day]  
+        df = df[df['day_of_week'] == day]
     print (df.head(10))
-    return df 
+    return df
 
 ### Function to present all necessary data
 def present_data(df):
@@ -72,14 +72,14 @@ def present_data(df):
     popular_month = df['month'].mode()[0]
     print('Most Popular Start Hour:', popular_hour)
     if ask == 'month' or ask == 'none':
-        print ('Most popular day of week: ', popular_day)        
+        print ('Most popular day of week: ', popular_day)
     if ask == 'none':
-        print ('Most popular month: ', popular_month)           
+        print ('Most popular month: ', popular_month)
 
 # printing trip data
     print('\nTotal travel time:')
     total_hours_travel = df['Trip Duration'].sum()
-    time1 = total_hours_travel 
+    time1 = total_hours_travel
     hour1 = time1 // 3600
     time1 %= 3600
     minutes1 = time1 // 60
@@ -92,7 +92,7 @@ def present_data(df):
     time2 = avg_travel
     minutes2 = time2 // 60
     time2 %= 60
-    seconds2 = time2 
+    seconds2 = time2
     print ('Average travel time (mins) {}m:{}s'.format(minutes2,seconds2),'\n')
 
 #printing popular stations and trip data
@@ -107,9 +107,9 @@ def present_data(df):
     print ('Most common trip from start to end: ', common_trip,'\n')
 ### end of Present Data function
 
-### user info and data 
+### user info and data
 def user_info(df):
-    
+
     try:
         print('\nUser Info:\n')
         # count of user types
@@ -130,8 +130,8 @@ def user_info(df):
 def raw_data(city):
     df = pd.read_csv(CITY_DATA[city])
     option = 'yes'
-    i=5 
-    while option == 'yes': 
+    i=5
+    while option == 'yes':
        option = input('\nWould you like to see the raw data? please type yes or no: ').lower()
        if option != 'yes':
            break
@@ -142,7 +142,7 @@ def raw_data(city):
                if option == 'yes':
                    print (df[i:(i+5)])
                    i += 5
-          
+
 
 def main():
     while True:
@@ -160,11 +160,6 @@ def main():
 if __name__ == "__main__":
      main()
 
-    
-
-
-    
-
-
-
-
+def new_city():
+    nc = input("please add a new city: ")
+        
