@@ -16,6 +16,6 @@ It's important to give proper credit. Add links to any repo that inspired you or
 ### This is a TEST file for the project
 This is a TEST file for the project
 
-### Trying branching and merging
-Trying branching and merging
+### Trying branching and merging #2
+Trying branching and merging #2
 
